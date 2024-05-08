@@ -58,7 +58,7 @@ function init() {
     // Cargar modelo GLB
     const loader = new GLTFLoader();
     loader.load(
-        'public/model/ñeque100.glb',
+        'model/ñeque100.glb',
         function ( gltf ) {
             const model = gltf.scene;
             group.add( model );
