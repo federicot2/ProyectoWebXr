@@ -27,7 +27,7 @@ function init() {
     scene.background = new THREE.Color( 0x808080 );
 
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
-    camera.position.set( 0, 1.6, 3 );
+    camera.position.set( 0, 1.6, 5 );
 
     controls = new OrbitControls( camera, container );
     controls.target.set( 0, 1.6, 0 );
@@ -36,6 +36,8 @@ function init() {
     const floorGeometry = new THREE.PlaneGeometry( 6, 6 );
     const floorMaterial = new THREE.ShadowMaterial( { opacity: 0.25, blending: THREE.CustomBlending, transparent: false } );
     const floor = new THREE.Mesh( floorGeometry, floorMaterial );
+
+	floor.position.y = -0.3;
     floor.rotation.x = - Math.PI / 2;
     floor.receiveShadow = true;
     scene.add( floor );
@@ -61,6 +63,8 @@ function init() {
         'model/ñeque100.glb',
         function ( gltf ) {
             const model = gltf.scene;
+
+			model.scale.set(0.2, 0.2, 0.2);
             group.add( model );
         },
         function ( xhr ) {
