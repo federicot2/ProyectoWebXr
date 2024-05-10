@@ -67,7 +67,7 @@ function init() {
         'model/objeto.obj',
         function ( object ) {
             // Ajusta la escala del objeto
-            object.scale.set(0.2, 0.2, 0.2);
+            object.scale.set(0.001, 0.001, 0.001);
             // Agrega el objeto a la escena
             scene.add( object );
         },
