@@ -4,6 +4,8 @@ import { XRButton } from 'three/examples/jsm/webxr/XRButton.js';
 import { XRControllerModelFactory } from 'three/examples/jsm/webxr/XRControllerModelFactory.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+
 let container;
 let camera, scene, renderer;
 let controller1, controller2;
@@ -58,20 +60,22 @@ function init() {
     scene.add( group );
 
     // Cargar modelo GLB
-    const loader = new GLTFLoader();
-    loader.load(
-        'model/ñeque100.glb',
-        function ( gltf ) {
-            const model = gltf.scene;
+    //const loader = new GLTFLoader();
 
-			model.scale.set(0.2, 0.2, 0.2);
-            group.add( model );
+    const loader = new OBJLoader();
+    loader.load(
+        'model/objeto.obj',
+        function ( object ) {
+            // Ajusta la escala del objeto
+            object.scale.set(0.2, 0.2, 0.2);
+            // Agrega el objeto a la escena
+            scene.add( object );
         },
         function ( xhr ) {
             console.log( ( xhr.loaded / xhr.total * 100 ) + '% cargado' );
         },
         function ( error ) {
-            console.error( 'Error al cargar el modelo GLB', error );
+            console.error( 'Error al cargar el modelo OBJ', error );
         }
     );
 
