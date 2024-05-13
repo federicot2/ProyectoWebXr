@@ -4,8 +4,6 @@ import { XRButton } from 'three/examples/jsm/webxr/XRButton.js';
 import { XRControllerModelFactory } from 'three/examples/jsm/webxr/XRControllerModelFactory.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-
 let container;
 let camera, scene, renderer;
 let controller1, controller2;
@@ -29,7 +27,7 @@ function init() {
     scene.background = new THREE.Color( 0x808080 );
 
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
-    camera.position.set( 0, 1.6, 5 );
+    camera.position.set( 0, 1.6, 3 );
 
     controls = new OrbitControls( camera, container );
     controls.target.set( 0, 1.6, 0 );
@@ -60,22 +58,21 @@ function init() {
     scene.add( group );
 
     // Cargar modelo GLB
-    //const loader = new GLTFLoader();
-
-    const loader = new OBJLoader();
+    const loader = new GLTFLoader();
     loader.load(
-        'model/objeto.obj',
-        function ( object ) {
-            // Ajusta la escala del objeto
-            object.scale.set(0.001, 0.001, 0.001);
-            // Agrega el objeto a la escena
-            scene.add( object );
+        'model/arbol.glb',
+        function ( gltf ) {
+            const model = gltf.scene;
+
+			//model.scale.set(0.1, 0.1, 0.1);
+            model.position.y = 1;
+            group.add( model );
         },
         function ( xhr ) {
             console.log( ( xhr.loaded / xhr.total * 100 ) + '% cargado' );
         },
         function ( error ) {
-            console.error( 'Error al cargar el modelo OBJ', error );
+            console.error( 'Error al cargar el modelo GLB', error );
         }
     );
 
@@ -248,3 +245,4 @@ function render() {
     renderer.render( scene, camera );
 
 }
+
