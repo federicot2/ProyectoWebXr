@@ -16,7 +16,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px; /* Limitar el ancho máximo */
+    max-width: 600px;
   }
   
   .close {
@@ -50,5 +50,92 @@
 	top: 50px;
 }
 
+
+/* H1 styles */
+h1.title {
+  -webkit-appearance: none;
+  font-family: Courier, sans-serif;
+  font-size: 2rem; /* Relative unit for responsive sizing */
+  text-align: center;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 1rem; 
+  margin: 0; 
+  border-radius: 5px;
+  cursor: default; 
+  z-index: 2; /* Higher than the 3D scene, adjust if necessary */
+}
+
+/* Adjust the position as needed */
+.titlePosition {
+  left: 50%;
+  top: 2rem;
+  transform: translateX(-50%);
+}
+
+/* P styles */
+p.descripcion {
+  -webkit-appearance: none;
+  font-family: Courier, sans-serif;
+  font-size: 1.25rem; /* Relative unit for responsive sizing */
+  text-align: center;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 1rem; 
+  margin: 0; 
+  border-radius: 5px;
+  cursor: default; 
+  z-index: 2; /* Ensure it is above other elements */
+}
+
+.informacion {
+  left: 50%;
+  bottom: 5rem;
+  transform: translateX(-50%);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  h1.title {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+    padding: 0.75rem;
+  }
+  
+  p.descripcion {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.title {
+    font-size: 1.25rem; /* Further adjust for very small screens */
+    padding: 0.5rem;
+  }
+  
+  p.descripcion {
+    font-size: 0.875rem; /* Further adjust for very small screens */
+    padding: 0.5rem;
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.imagen{
+  padding: 1rem;
+}
 
   
