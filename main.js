@@ -69,7 +69,7 @@ function init() {
             group.add( model );
         },
         function ( xhr ) {
-            console.log( ( xhr.loaded / xhr.total * 100 ) + '% cargado' );
+            console.log( ( xhr.loaded / xhr.total * 100 ) + '% Cargado' );
         },
         function ( error ) {
             console.error( 'Error al cargar el modelo GLB', error );
