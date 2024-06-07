@@ -60,7 +60,7 @@ function init() {
     // Cargar modelo GLB
     const loader = new GLTFLoader();
     loader.load(
-        '/model/arbol.glb',
+        '/model/annona.glb',
         function ( gltf ) {
             const model = gltf.scene;
 
